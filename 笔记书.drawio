@@ -1,20 +1,20 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36" version="26.1.1" pages="7">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36" version="26.1.1" pages="8">
   <diagram name="CPU异常和中断" id="doWZ--KAZuVLqRDES7xJ">
-    <mxGraphModel dx="2345" dy="2900" grid="1" gridSize="10" guides="1" tooltips="1" connect="0" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="2100" dy="1602" grid="1" gridSize="10" guides="1" tooltips="1" connect="0" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="KStSb-11I_N8AqFFGBWY-7" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;中断和异常&lt;/h1&gt;&lt;div&gt;中断是指：在CPU外部（片上总线的外设）促使CPU内部而产生异常，被称之为中断。&lt;/div&gt;&lt;div&gt;异常是指：在CPU内部打断了当前的程序流。例如：int32_t A = B/0; 这里叫做异常。&lt;/div&gt;&lt;div&gt;一般来统称都叫做异常，但是要区分清楚。&lt;/div&gt;&lt;div&gt;1.CPU内部的异常是同步-会立马响应&lt;/div&gt;&lt;div&gt;2.外部中断一般都是异步-会先挂起然后CPU再去响应&lt;/div&gt;&lt;div&gt;3.内核异常有：16种-hardfault NMI Reset busFault UsafeFault 保留4 SVcall PendSV SYSTICK-&amp;gt; 以上这几种在cubemx都可以看到&lt;/div&gt;&lt;div&gt;4.外部中断异常就看这个芯片的外设情况了，一般有86种（异步的）-&amp;gt;流程是：HARDWARE INT -&amp;gt; NVIC-&amp;gt;CPU&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;overflow=hidden;rounded=0;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;fontFamily=Lucida Console;fontSize=15;align=left;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;fontStyle=1;labelBorderColor=none;verticalAlign=top;" parent="1" vertex="1">
-          <mxGeometry x="9.47" width="1030.53" height="280" as="geometry" />
+        <mxCell id="KStSb-11I_N8AqFFGBWY-7" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;中断和异常&lt;/h1&gt;&lt;div&gt;中断是指：在CPU外部（片上总线的外设）促使CPU内部而产生异常，被称之为中断。&lt;/div&gt;&lt;div&gt;异常是指：在CPU内部打断了当前的程序流。例如：int32_t A = B/0; 这里叫做异常。&lt;/div&gt;&lt;div&gt;一般来统称都叫做异常，但是要区分清楚。&lt;/div&gt;&lt;div&gt;1.CPU内部的异常是同步-会立马响应&lt;/div&gt;&lt;div&gt;2.外部中断一般都是异步-会先挂起然后CPU再去响应&lt;/div&gt;&lt;div&gt;3.内核异常有：16种-hardfault NMI Reset busFault UsafeFault&amp;nbsp;&lt;/div&gt;&lt;div&gt;保留4 SVcall PendSV SYSTICK-&amp;gt; 以上这几种在cubemx都可以看到&lt;/div&gt;&lt;div&gt;4.外部中断异常就看这个芯片的外设情况了，&lt;/div&gt;&lt;div&gt;一般有86种（异步的）-&amp;gt;流程是：HARDWARE INT -&amp;gt; NVIC-&amp;gt;CPU&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;overflow=hidden;rounded=0;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;fontFamily=Lucida Console;fontSize=15;align=left;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;fontStyle=1;labelBorderColor=none;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="9.47" width="810.53" height="280" as="geometry" />
         </mxCell>
         <mxCell id="KStSb-11I_N8AqFFGBWY-34" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;软件中断产生-写入的是NVIC-STIR寄存器&lt;/h1&gt;&lt;p&gt;void soft_interruput(void)&lt;/p&gt;&lt;p&gt;{&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;NVIC_SetPendingIRQ();&lt;/p&gt;&lt;p&gt;}&lt;/p&gt;" style="text;html=1;overflow=hidden;rounded=0;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;fontFamily=Lucida Console;fontSize=15;align=left;fontStyle=1;labelBorderColor=none;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="9.47" y="866.14" width="800.53" height="196.85" as="geometry" />
         </mxCell>
         <mxCell id="KStSb-11I_N8AqFFGBWY-36" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;寄存器映射&lt;/h1&gt;&lt;div&gt;寄存器映射的定义是CPU-通过I-bus，S-bus，D-bus去访问片上单元的时候，&lt;/div&gt;&lt;div&gt;CPU并不知道谁是谁，只知道一个地址，然后通过总线的去翻译这个地址的东西，&lt;/div&gt;&lt;div&gt;具体是什么，那么ST在定义这些总线上外设的地址时，都是按照总线的基地址去偏移的。&lt;/div&gt;" style="text;html=1;overflow=hidden;rounded=0;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;fontFamily=Lucida Console;fontSize=15;align=left;fontStyle=1;labelBorderColor=none;verticalAlign=top;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;" parent="1" vertex="1">
-          <mxGeometry x="9.47" y="1181.1" width="826.77" height="236.21999999999997" as="geometry" />
+          <mxGeometry x="9.47" y="1181.1" width="780.53" height="236.22" as="geometry" />
         </mxCell>
         <mxCell id="KStSb-11I_N8AqFFGBWY-37" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;中断向量表偏移&lt;/h1&gt;&lt;div&gt;像上取整-&amp;gt;2次幂形式&lt;/div&gt;&lt;div&gt;16个内核中断+87个外部中断(主要看芯片有多少个外部中断)&lt;/div&gt;&lt;div&gt;16+87=103&lt;/div&gt;&lt;div&gt;103*4 = 412字节&lt;/div&gt;&lt;div&gt;那么就要取512字节-0x20000，不能向下兼容。否则会出错&lt;/div&gt;" style="text;html=1;overflow=hidden;rounded=0;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontFamily=Lucida Console;fontSize=15;align=left;fontColor=#46495D;fontStyle=1;labelBorderColor=none;verticalAlign=top;" parent="1" vertex="1">
-          <mxGeometry x="9.47" y="1929.1299999999999" width="826.77" height="275.59" as="geometry" />
+          <mxGeometry x="9.47" y="1929.13" width="770.53" height="275.59" as="geometry" />
         </mxCell>
         <mxCell id="pkg7jA9xBUTU1gesx26H-1" value="CPU" style="rounded=0;html=1;labelBackgroundColor=none;sketch=1;curveFitting=1;jiggle=2;fillColor=#B2C9AB;strokeColor=#788AA3;fontColor=#46495D;fontFamily=Lucida Console;fontSize=15;align=left;fontStyle=1;labelBorderColor=none;verticalAlign=top;" parent="1" vertex="1">
           <mxGeometry x="285.06" y="354.33" width="118.10999999999999" height="78.74" as="geometry" />
@@ -71,8 +71,8 @@
         <mxCell id="pkg7jA9xBUTU1gesx26H-16" value="Instructions" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;rounded=0;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;fontColor=#46495D;fontFamily=Lucida Console;fontSize=15;fontStyle=1;labelBorderColor=none;" parent="1" vertex="1">
           <mxGeometry x="285.06" y="433.07" width="118.10999999999999" height="39.37" as="geometry" />
         </mxCell>
-        <mxCell id="K4j-HMJ9ixGcpVl9BwBr-1" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;向量表&lt;/h1&gt;&lt;p&gt;什么是向量表?&lt;/p&gt;&lt;p&gt;1.向量表的意思就是把前面的所说的或者MCU在出厂的时候，规划了很多不同段的地址，我们的程序跑MAIN程序的地址是0x80000这些，都是由厂家弄好的。其实就是提供了一个地址如果发生了对应的错误或者中断，会跳转到指定的地址。&lt;/p&gt;&lt;p&gt;2.这些都是MCU内核相关，他们存在优先级最高是-3，分为可以配置类型和不可配置类型。&lt;/p&gt;&lt;p&gt;3.可以理解为每次向量地址就是一个函数，每一个向量地址的大小是4字节-指针大小。&lt;/p&gt;" style="text;html=1;overflow=hidden;rounded=0;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontFamily=Lucida Console;fontSize=15;align=left;fontStyle=1;labelBorderColor=none;verticalAlign=top;fontColor=#46495D;" parent="1" vertex="1">
-          <mxGeometry x="9.47" y="1496.06" width="1640.53" height="273.94" as="geometry" />
+        <mxCell id="K4j-HMJ9ixGcpVl9BwBr-1" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;向量表&lt;/h1&gt;&lt;p&gt;什么是向量表?&lt;/p&gt;&lt;p&gt;1.向量表的意思就是把前面的所说的或者MCU在出厂的时候，规划了很多不同段的地址&lt;/p&gt;&lt;p&gt;程序跑MAIN程序的地址是0x80000这些，&lt;/p&gt;&lt;p&gt;都是由厂家弄好的。其实就是提供了一个地址如果发生了对应的错误或者中断，会跳转到指定的地址。&lt;/p&gt;&lt;p&gt;2.这些都是MCU内核相关，他们存在优先级最高是-3，分为可以配置类型和不可配置类型。&lt;/p&gt;&lt;p&gt;3.可以理解为每次向量地址就是一个函数，每一个向量地址的大小是4字节-指针大小。&lt;/p&gt;" style="text;html=1;overflow=hidden;rounded=0;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;fillColor=#B2C9AB;strokeColor=#788AA3;fontFamily=Lucida Console;fontSize=15;align=left;fontStyle=1;labelBorderColor=none;verticalAlign=top;fontColor=#46495D;" parent="1" vertex="1">
+          <mxGeometry x="9.47" y="1496.06" width="810.53" height="273.94" as="geometry" />
         </mxCell>
         <mxCell id="FO6a5jXskNcYPXz5xM0C-2" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;进入异常的流程&lt;/h1&gt;" style="text;html=1;overflow=hidden;rounded=0;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;fontFamily=Lucida Console;fontSize=15;align=left;fontStyle=1;labelBorderColor=none;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="9.47" y="2362.2" width="236.22" height="39.37" as="geometry" />
@@ -379,7 +379,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="8xPU_F2kr4TlgMfsqlub" name="STM32-H743VITX笔记">
-    <mxGraphModel dx="1088" dy="1877" grid="1" gridSize="39" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1478" dy="2771" grid="1" gridSize="39" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -664,6 +664,26 @@
         </mxCell>
         <mxCell id="yB9am7ZWd1Sf3quz6ZpN-21" value="运行时间的差异" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="460" y="3440" width="110" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="aESpygJyv2H9ImVJaQx8" name="驱动专题找对象">
+    <mxGraphModel dx="1115" dy="570" grid="1" gridSize="20" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0O3NtGSBY4uUvOIE41jl-2" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;驱动笔记&lt;/font&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" parent="1" vertex="1">
+          <mxGeometry x="354" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0O3NtGSBY4uUvOIE41jl-4" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;1.1 驱动找对象的方法&lt;/font&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" parent="1" vertex="1">
+          <mxGeometry y="140" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0O3NtGSBY4uUvOIE41jl-5" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;p&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;span style=&quot;line-height: 100%;&quot;&gt;1.1.1&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;line-height: 100%;&quot;&gt;首先归类写的东西有什么特性&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;line-height: 100%;&quot;&gt;例如：LED灯，亮和灭，翻转，翻转时长，翻转次数&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;line-height: 100%; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;向这一类就可以直接归结为operation ，就是操作层面&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" parent="1" vertex="1">
+          <mxGeometry y="200" width="820" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="0PDhfY9BZxWfwebPEP7v-1" value="&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;1.1.2 需要对外实现功能实现的接口&lt;/span&gt;&lt;/p&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry y="300" width="820" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
