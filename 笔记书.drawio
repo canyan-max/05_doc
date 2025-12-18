@@ -669,7 +669,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="aESpygJyv2H9ImVJaQx8" name="驱动专题找对象">
-    <mxGraphModel dx="1115" dy="570" grid="1" gridSize="20" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1024" dy="1126" grid="1" gridSize="20" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -680,10 +680,19 @@
           <mxGeometry y="140" width="280" height="60" as="geometry" />
         </mxCell>
         <mxCell id="0O3NtGSBY4uUvOIE41jl-5" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;p&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;span style=&quot;line-height: 100%;&quot;&gt;1.1.1&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;line-height: 100%;&quot;&gt;首先归类写的东西有什么特性&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;line-height: 100%;&quot;&gt;例如：LED灯，亮和灭，翻转，翻转时长，翻转次数&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;line-height: 100%; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;向这一类就可以直接归结为operation ，就是操作层面&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" parent="1" vertex="1">
-          <mxGeometry y="200" width="820" height="120" as="geometry" />
+          <mxGeometry y="180" width="820" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="0PDhfY9BZxWfwebPEP7v-1" value="&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;1.1.2 需要对外实现功能实现的接口&lt;/span&gt;&lt;/p&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="0PDhfY9BZxWfwebPEP7v-1" value="&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;1.1.2 需要对外实现功能实现的接口&lt;/span&gt;&lt;/p&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry y="300" width="820" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Mmmk4_VTn8UP0J9DBHMf-1" value="&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;* 最主要的能力是要学会找对象，找出相应的共同点，可以使得代码可以复用，不用一改就全都要改，做好隔离&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;* 改一层代码不需要修改另外一层的代码，这样就可以很好的解除耦合&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry y="380" width="720" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Mmmk4_VTn8UP0J9DBHMf-2" value="&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;1.2&amp;nbsp;以LED为对象进行抽象的过程和实操&lt;/span&gt;&lt;/p&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry y="500" width="820" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Mmmk4_VTn8UP0J9DBHMf-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="140" y="680" width="540" height="140" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
