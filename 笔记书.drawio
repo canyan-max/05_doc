@@ -332,7 +332,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="D0a6qC7eg57PeptzisEq" name="队列拷贝的问题">
-    <mxGraphModel dx="1971" dy="1549" grid="1" gridSize="19" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1470" dy="898" grid="1" gridSize="19" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -375,137 +375,137 @@
         <mxCell id="ncrBoCA1mMu0P0deR8o_-9" value="如下面这种功能.,&lt;span style=&quot;color: rgb(156, 220, 254); background-color: rgb(31, 31, 31); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 16px; white-space-collapse: preserve;&quot;&gt;xHigherPriorityTaskWokenByPost 这个值取得要求是PDFAlse,因为PENSV优先级很低.&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;" parent="1" vertex="1">
           <mxGeometry y="1560" width="819" height="39" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-1" value="&lt;font style=&quot;font-size: 21px;&quot;&gt;关于2级指针的一些说明&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-1" value="&lt;font style=&quot;font-size: 21px;&quot;&gt;关于2级指针传递参数的一些说明&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry y="1944" width="817" height="51" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-2" value="static led_handler_status_t queue_create(uint32_t const item_num, \&#xa;                                         uint32_t const item_size,&#xa;                                         void **  const queue_handler)&#xa;{&#xa;    led_handler_status_t ret = LED_HANDLER_OK;&#xa;    &#xa;    if(NULL == queue_handler)&#xa;    {&#xa;        RTT_ELOG_INFO(&quot;queue create para err&quot;,HAL_GetTick());&#xa;        ret = LED_HANDLER_PARA_ERR;&#xa;        return ret;&#xa;    }&#xa;    &#xa;    // to create the queue and get the queue handler   &#xa;    QueueHandle_t temp_queue = NULL;&#xa;    RTT_ELOG_INFO(&quot;temp_queue  before [%p]&quot;, \&#xa;    temp_queue);&#xa;    RTT_ELOG_INFO(&quot;p2  before [%p]&quot;, \&#xa;    p2);&#xa;    temp_queue = xQueueCreate(item_num, item_size);&#xa;    if(NULL == temp_queue)&#xa;    {&#xa;        RTT_ELOG_INFO(&quot;queue create err&quot;,HAL_GetTick());&#xa;        ret = LED_HANDLER_ERROR;&#xa;        return ret;&#xa;    }&#xa;    RTT_ELOG_INFO(&quot;temp_queue  after [%p]&quot;, \&#xa;    temp_queue);&#xa;    // create queue is successfull&#xa;    *queue_handler = temp_queue;&#xa;    return ret;   &#xa;}" style="text;whiteSpace=wrap;fontFamily=Lucida Console;fontSize=19;fontStyle=1;align=left;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-2" value="static led_handler_status_t queue_create(uint32_t const item_num, \&#xa;                                         uint32_t const item_size,&#xa;                                         void **  const queue_handler)&#xa;{&#xa;    led_handler_status_t ret = LED_HANDLER_OK;&#xa;    &#xa;    if(NULL == queue_handler)&#xa;    {&#xa;        RTT_ELOG_INFO(&quot;queue create para err&quot;,HAL_GetTick());&#xa;        ret = LED_HANDLER_PARA_ERR;&#xa;        return ret;&#xa;    }&#xa;    &#xa;    // to create the queue and get the queue handler   &#xa;    QueueHandle_t temp_queue = NULL;&#xa;    RTT_ELOG_INFO(&quot;temp_queue  before [%p]&quot;, \&#xa;    temp_queue);&#xa;    RTT_ELOG_INFO(&quot;p2  before [%p]&quot;, \&#xa;    p2);&#xa;    temp_queue = xQueueCreate(item_num, item_size);&#xa;    if(NULL == temp_queue)&#xa;    {&#xa;        RTT_ELOG_INFO(&quot;queue create err&quot;,HAL_GetTick());&#xa;        ret = LED_HANDLER_ERROR;&#xa;        return ret;&#xa;    }&#xa;    RTT_ELOG_INFO(&quot;temp_queue  after [%p]&quot;, \&#xa;    temp_queue);&#xa;    // create queue is successfull&#xa;    *queue_handler = temp_queue;&#xa;    return ret;   &#xa;}" style="text;whiteSpace=wrap;fontFamily=Lucida Console;fontSize=19;fontStyle=1;align=left;" parent="1" vertex="1">
           <mxGeometry x="2" y="1995" width="815" height="741" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-3" value="示例:&#xa;queue_create( 1, 1,&amp;p2);&#xa;假设 temp_queue 在函数内申请成功后的内存是0x2000015;&#xa;经过这个函数后queue_create( 1, 1,&amp;p2);&#xa;p2 = 0x2000015;&#xa;队列准0拷贝也是和下面的原理差不多&#xa;流程解释如下.&#xa;&#xa;" style="text;whiteSpace=wrap;fontFamily=Lucida Console;fontSize=20;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-3" value="示例:&#xa;queue_create( 1, 1,&amp;p2);&#xa;假设 temp_queue 在函数内申请成功后的内存是0x2000015;&#xa;经过这个函数后queue_create( 1, 1,&amp;p2);&#xa;p2 = 0x2000015;&#xa;队列准0拷贝也是和下面的原理差不多&#xa;流程解释如下.&#xa;&#xa;" style="text;whiteSpace=wrap;fontFamily=Lucida Console;fontSize=20;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="4.5" y="2755" width="812.5" height="285" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-6" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" edge="1" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-4" target="U0-nq_Ud3s2oBGpxeMeg-5">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-6" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-4" target="U0-nq_Ud3s2oBGpxeMeg-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-7" value="存储的地址" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;fontSize=18;" vertex="1" connectable="0" parent="U0-nq_Ud3s2oBGpxeMeg-6">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-7" value="存储的地址" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;fontSize=18;" parent="U0-nq_Ud3s2oBGpxeMeg-6" vertex="1" connectable="0">
           <mxGeometry x="-0.1939" y="-4" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-4" value="&lt;span style=&quot;text-align: left;&quot;&gt;temp_queue&amp;nbsp;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-4" value="&lt;span style=&quot;text-align: left;&quot;&gt;temp_queue&amp;nbsp;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="21" y="3097" width="152" height="95" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-5" value="&lt;span style=&quot;text-align: left;&quot;&gt;0x2000015&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-5" value="&lt;span style=&quot;text-align: left;&quot;&gt;0x2000015&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="589" y="3104.5" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-9" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" edge="1" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-8">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-9" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-8" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="401" y="3564" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-11" value="存储着p2的地址" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;fontSize=18;" vertex="1" connectable="0" parent="U0-nq_Ud3s2oBGpxeMeg-9">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-11" value="存储着p2的地址" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;fontSize=18;" parent="U0-nq_Ud3s2oBGpxeMeg-9" vertex="1" connectable="0">
           <mxGeometry x="-0.2715" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-15" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" edge="1" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-8" target="U0-nq_Ud3s2oBGpxeMeg-14">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-15" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-8" target="U0-nq_Ud3s2oBGpxeMeg-14" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-16" value="指针解引用,降级为1级指针" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;fontSize=18;" vertex="1" connectable="0" parent="U0-nq_Ud3s2oBGpxeMeg-15">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-16" value="指针解引用,降级为1级指针" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;fontSize=18;" parent="U0-nq_Ud3s2oBGpxeMeg-15" vertex="1" connectable="0">
           <mxGeometry x="0.1629" y="-5" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-8" value="&lt;span style=&quot;text-align: left;&quot;&gt;queue_handler&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-8" value="&lt;span style=&quot;text-align: left;&quot;&gt;queue_handler&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="45" y="3507" width="152" height="114" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-13" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" edge="1" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-10" target="U0-nq_Ud3s2oBGpxeMeg-12">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-13" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-10" target="U0-nq_Ud3s2oBGpxeMeg-12" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-10" value="&lt;span style=&quot;text-align: left;&quot;&gt;&amp;amp;p2&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-10" value="&lt;span style=&quot;text-align: left;&quot;&gt;&amp;amp;p2&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="363" y="3524" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-12" value="&lt;span style=&quot;text-align: left;&quot;&gt;0x180001&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-12" value="&lt;span style=&quot;text-align: left;&quot;&gt;0x180001&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="610" y="3524" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-46" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" edge="1" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-14" target="U0-nq_Ud3s2oBGpxeMeg-44">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-46" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-14" target="U0-nq_Ud3s2oBGpxeMeg-44" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-14" value="&lt;span style=&quot;text-align: left;&quot;&gt;*queue_handler&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-14" value="&lt;span style=&quot;text-align: left;&quot;&gt;*queue_handler&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="45" y="3741" width="152" height="108" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-28" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" edge="1" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-17" target="U0-nq_Ud3s2oBGpxeMeg-27">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-28" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-17" target="U0-nq_Ud3s2oBGpxeMeg-27" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-17" value="&lt;span style=&quot;text-align: left;&quot;&gt;*queue_handler=&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;temp_queue&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;text-align: left;&quot;&gt;等价于&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left;&quot;&gt;p2=&lt;/span&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;temp_queue=&lt;/span&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;0x2000015&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-17" value="&lt;span style=&quot;text-align: left;&quot;&gt;*queue_handler=&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;temp_queue&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;text-align: left;&quot;&gt;等价于&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: left;&quot;&gt;p2=&lt;/span&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;temp_queue=&lt;/span&gt;&lt;span style=&quot;text-align: left; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;0x2000015&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="4" y="4001" width="722" height="114" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-26" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" edge="1" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-20" target="U0-nq_Ud3s2oBGpxeMeg-25">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-26" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-20" target="U0-nq_Ud3s2oBGpxeMeg-25" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-20" value="&lt;span style=&quot;text-align: left;&quot;&gt;P2&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-20" value="&lt;span style=&quot;text-align: left;&quot;&gt;P2&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="409" y="3741" width="152" height="114" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-22" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;curved=1;fontSize=18;" edge="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-22" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;startSize=14;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;curved=1;fontSize=18;" parent="1" edge="1">
           <mxGeometry width="100" height="100" relative="1" as="geometry">
             <mxPoint x="211" y="3797.41" as="sourcePoint" />
             <mxPoint x="401" y="3797.41" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-23" value="等价" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-23" value="等价" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="270" y="3767" width="76" height="38" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-25" value="&lt;span style=&quot;text-align: left;&quot;&gt;0x200030&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-25" value="&lt;span style=&quot;text-align: left;&quot;&gt;0x200030&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="626" y="3741" width="152" height="114" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-30" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" edge="1" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-27" target="U0-nq_Ud3s2oBGpxeMeg-29">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-30" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-27" target="U0-nq_Ud3s2oBGpxeMeg-29" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-31" value="成功修改p2指向的地址" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;fontSize=18;" vertex="1" connectable="0" parent="U0-nq_Ud3s2oBGpxeMeg-30">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-31" value="成功修改p2指向的地址" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;fontSize=18;" parent="U0-nq_Ud3s2oBGpxeMeg-30" vertex="1" connectable="0">
           <mxGeometry x="-0.1407" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-27" value="&lt;span style=&quot;text-align: left;&quot;&gt;p2=&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;temp_queue=&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;0x2000015&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-27" value="&lt;span style=&quot;text-align: left;&quot;&gt;p2=&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;temp_queue=&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;0x2000015&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="4" y="4235" width="722" height="114" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-29" value="p2 =&amp;nbsp;&lt;span style=&quot;text-align: left;&quot;&gt;0x2000015;&lt;/span&gt;" style="whiteSpace=wrap;html=1;fontFamily=Lucida Console;rounded=0;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-29" value="p2 =&amp;nbsp;&lt;span style=&quot;text-align: left;&quot;&gt;0x2000015;&lt;/span&gt;" style="whiteSpace=wrap;html=1;fontFamily=Lucida Console;rounded=0;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="155.5" y="4457" width="419" height="75" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-32" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" edge="1" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-34" target="U0-nq_Ud3s2oBGpxeMeg-35">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-32" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-34" target="U0-nq_Ud3s2oBGpxeMeg-35" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-33" value="p2存储的地址" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;fontSize=18;" vertex="1" connectable="0" parent="U0-nq_Ud3s2oBGpxeMeg-32">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-33" value="p2存储的地址" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;fontSize=18;" parent="U0-nq_Ud3s2oBGpxeMeg-32" vertex="1" connectable="0">
           <mxGeometry x="-0.1939" y="-4" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-41" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" edge="1" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-34">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-41" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;fontSize=18;" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-34" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="173" y="3296.5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-42" value="p2变量的地址" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;fontSize=18;" vertex="1" connectable="0" parent="U0-nq_Ud3s2oBGpxeMeg-41">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-42" value="p2变量的地址" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;fontSize=18;" parent="U0-nq_Ud3s2oBGpxeMeg-41" vertex="1" connectable="0">
           <mxGeometry x="-0.001" y="-1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-34" value="&lt;span style=&quot;text-align: left;&quot;&gt;P2&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-34" value="&lt;span style=&quot;text-align: left;&quot;&gt;P2&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="318" y="3249" width="152" height="95" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-35" value="&lt;span style=&quot;text-align: left;&quot;&gt;0x200030&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-35" value="&lt;span style=&quot;text-align: left;&quot;&gt;0x200030&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="610" y="3256.5" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-36" value="&lt;span style=&quot;text-align: left;&quot;&gt;0x180001&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-36" value="&lt;span style=&quot;text-align: left;&quot;&gt;0x180001&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="21" y="3249" width="152" height="95" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-44" value="函数内赋值过程" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-44" value="函数内赋值过程" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="294" y="3914" width="114" height="38" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-47" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.477;entryY=0.023;entryDx=0;entryDy=0;entryPerimeter=0;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" edge="1" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-44" target="U0-nq_Ud3s2oBGpxeMeg-17">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-47" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.477;entryY=0.023;entryDx=0;entryDy=0;entryPerimeter=0;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="U0-nq_Ud3s2oBGpxeMeg-44" target="U0-nq_Ud3s2oBGpxeMeg-17" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-48" value="示例:&#xa;通过以上流程就知道为什么形参需要写成2级指针的形式.如果还不够透彻下方还有示例代码,在这个demo之下,一下就秒了,简而言之就是你是需要修改指针所指向的值,那么形参必然要高于你当前指针的等级,你才可以解引用,修改到位.&#xa;&#xa;int a = 10 ;&#xa;int b = 20 ;&#xa;void swap(int a , int b)&#xa;{&#xa;int c = b;  &#xa;b=a;&#xa;a=c;&#xa;}&#xa;{&#xa;    swap(a,b);&#xa;    printf(&quot;a =%d , b=%d&quot;,a,b)&#xa;    a = 10 b = 20&#xa;}&#xa;&#xa;&#xa;void swap2(int *a , int *b)&#xa;{&#xa;      int c = *b;  &#xa;*b=*a;&#xa;*a=c;    &#xa;}&#xa;&#xa;&#xa;{&#xa;    swap2(&amp;a,&amp;b);&#xa;    printf(&quot;a =%d , b=%d&quot;,a,b)&#xa;    a = 20 b = 10&#xa;}" style="text;whiteSpace=wrap;fontFamily=Lucida Console;fontSize=20;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="U0-nq_Ud3s2oBGpxeMeg-48" value="示例:&#xa;通过以上流程就知道为什么形参需要写成2级指针的形式.如果还不够透彻下方还有示例代码,在这个demo之下,一下就秒了,简而言之就是你是需要修改指针所指向的值,那么形参必然要高于你当前指针的等级,你才可以解引用,修改到位.&#xa;&#xa;int a = 10 ;&#xa;int b = 20 ;&#xa;void swap(int a , int b)&#xa;{&#xa;int c = b;  &#xa;b=a;&#xa;a=c;&#xa;}&#xa;{&#xa;    swap(a,b);&#xa;    printf(&quot;a =%d , b=%d&quot;,a,b)&#xa;    a = 10 b = 20&#xa;}&#xa;&#xa;&#xa;void swap2(int *a , int *b)&#xa;{&#xa;      int c = *b;  &#xa;*b=*a;&#xa;*a=c;    &#xa;}&#xa;&#xa;&#xa;{&#xa;    swap2(&amp;a,&amp;b);&#xa;    printf(&quot;a =%d , b=%d&quot;,a,b)&#xa;    a = 20 b = 10&#xa;}" style="text;whiteSpace=wrap;fontFamily=Lucida Console;fontSize=20;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="4.5" y="4636" width="779" height="836" as="geometry" />
         </mxCell>
       </root>
@@ -728,20 +728,20 @@
     </mxGraphModel>
   </diagram>
   <diagram id="ylOnKCS0HK7T_J1cZ-7q" name="串口专题">
-    <mxGraphModel dx="1290" dy="1595" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1384" dy="1088" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="qUIY60qtPC6bm2DZDDYn-4" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;串口专题&lt;/font&gt;&lt;/b&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="qUIY60qtPC6bm2DZDDYn-4" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;串口专题&lt;/font&gt;&lt;/b&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry y="40" width="280" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qUIY60qtPC6bm2DZDDYn-5" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;BSP层&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;只关心外设的数据到来和数据存储&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;其他的都无须关心，解析那些都不关心&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="qUIY60qtPC6bm2DZDDYn-5" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;BSP层&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;只关心外设的数据到来和数据存储&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;其他的都无须关心，解析那些都不关心&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry y="120" width="280" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qUIY60qtPC6bm2DZDDYn-6" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;协议解析层&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;这一层就自定义写了，变动比较大。&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="qUIY60qtPC6bm2DZDDYn-6" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;协议解析层&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;这一层就自定义写了，变动比较大。&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry y="230" width="280" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qUIY60qtPC6bm2DZDDYn-7" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;APP层&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;在协议层操作完成之后，告诉APP直接做什么事情&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="qUIY60qtPC6bm2DZDDYn-7" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;APP层&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;在协议层操作完成之后，告诉APP直接做什么事情&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry y="360" width="280" height="80" as="geometry" />
         </mxCell>
       </root>
@@ -802,7 +802,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="aESpygJyv2H9ImVJaQx8" name="驱动专题找对象">
-    <mxGraphModel dx="1038" dy="972" grid="1" gridSize="20" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1468" dy="892" grid="1" gridSize="20" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -952,51 +952,48 @@
         <mxCell id="QZdwNjX23LQ9dl98x-IT-75" value="&lt;div&gt;驱动笔记&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="260" y="20" width="290" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-1" value="&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;以上就是推送流程,整体而言这个驱动的结构如下&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;1/driver-&amp;gt;像上handler提供自己的操作函数即正儿八经的具体实现类&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;2/handler-&amp;gt;负责管理挂在自己总线上所有的设备,并接受上层驱动带来的msg,在去调用下层driver&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;3/handler的则只需要把handler申明,然后把driver挂载进handler,并且拿到当前挂载的句柄.就可以操作最底下的driver.&lt;/span&gt;&lt;/p&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
-          <mxGeometry y="2760" width="820" height="220" as="geometry" />
-        </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-34" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="PTPIMXJff3HOZeHHCGvI-24" target="PTPIMXJff3HOZeHHCGvI-25">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-34" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" source="PTPIMXJff3HOZeHHCGvI-24" target="PTPIMXJff3HOZeHHCGvI-25" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-45" value="寻找" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;" vertex="1" connectable="0" parent="PTPIMXJff3HOZeHHCGvI-34">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-45" value="寻找" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;" parent="PTPIMXJff3HOZeHHCGvI-34" vertex="1" connectable="0">
           <mxGeometry x="0.1536" y="-1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-6" value="handler" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-6" value="handler" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="70" y="2080" width="560" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-9" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;curved=1;" edge="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-9" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;curved=1;" parent="1" edge="1">
           <mxGeometry width="140" relative="1" as="geometry">
             <mxPoint x="179.92000000000002" y="2500" as="sourcePoint" />
             <mxPoint x="179.92000000000002" y="2440" as="targetPoint" />
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-10" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;curved=1;" edge="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-10" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;curved=1;" parent="1" edge="1">
           <mxGeometry width="140" relative="1" as="geometry">
             <mxPoint x="223.50000000000006" y="2500" as="sourcePoint" />
             <mxPoint x="223.50000000000006" y="2440" as="targetPoint" />
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-11" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;curved=1;" edge="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-11" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;curved=1;" parent="1" edge="1">
           <mxGeometry width="140" relative="1" as="geometry">
             <mxPoint x="258.82000000000005" y="2499" as="sourcePoint" />
             <mxPoint x="258.82000000000005" y="2439" as="targetPoint" />
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-17" value="LED4" style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-17" value="LED4" style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="250" y="2540" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-18" value="LED3" style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-18" value="LED3" style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="200" y="2540" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-19" value="LED2" style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-19" value="LED2" style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="160" y="2540" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-37" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" edge="1" parent="1" source="PTPIMXJff3HOZeHHCGvI-20">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-37" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="PTPIMXJff3HOZeHHCGvI-20" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="140" y="2660" as="targetPoint" />
             <Array as="points">
@@ -1005,26 +1002,26 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-43" value="to work" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;" vertex="1" connectable="0" parent="PTPIMXJff3HOZeHHCGvI-37">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-43" value="to work" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;" parent="PTPIMXJff3HOZeHHCGvI-37" vertex="1" connectable="0">
           <mxGeometry x="0.1753" y="4" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-20" value="LED1" style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-20" value="LED1" style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="114" y="2540" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-22" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" edge="1" parent="1" source="PTPIMXJff3HOZeHHCGvI-21" target="PTPIMXJff3HOZeHHCGvI-6">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-22" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="PTPIMXJff3HOZeHHCGvI-21" target="PTPIMXJff3HOZeHHCGvI-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-23" value="操作LED1_ON,LED1句柄" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;" vertex="1" connectable="0" parent="PTPIMXJff3HOZeHHCGvI-22">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-23" value="操作LED1_ON,LED1句柄" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;" parent="PTPIMXJff3HOZeHHCGvI-22" vertex="1" connectable="0">
           <mxGeometry x="-0.1468" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-21" value="消息" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-21" value="消息" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="70" y="1940" width="560" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-41" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" edge="1" parent="1" target="PTPIMXJff3HOZeHHCGvI-20">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-41" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" target="PTPIMXJff3HOZeHHCGvI-20" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="114" y="2555" as="targetPoint" />
             <mxPoint x="120" y="2416.7999999999997" as="sourcePoint" />
@@ -1033,57 +1030,63 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-42" value="调用" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;" vertex="1" connectable="0" parent="PTPIMXJff3HOZeHHCGvI-41">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-42" value="调用" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;" parent="PTPIMXJff3HOZeHHCGvI-41" vertex="1" connectable="0">
           <mxGeometry x="0.405" y="7" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-25" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-25" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="120" y="2400" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-26" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-26" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="160" y="2400" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-27" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-27" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="200" y="2400" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-28" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-28" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="240" y="2400" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-29" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-29" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="280" y="2400" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-30" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-30" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="320" y="2400" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-31" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-31" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="360" y="2400" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-32" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-32" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="400" y="2400" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-33" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-33" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="440" y="2400" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-35" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" edge="1" parent="1" source="PTPIMXJff3HOZeHHCGvI-6" target="PTPIMXJff3HOZeHHCGvI-24">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-35" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="PTPIMXJff3HOZeHHCGvI-6" target="PTPIMXJff3HOZeHHCGvI-24" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="360" y="2208" as="sourcePoint" />
             <mxPoint x="374" y="2272" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-44" value="handler接收到信息并且寻找到对应的LED1的空间" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;" vertex="1" connectable="0" parent="PTPIMXJff3HOZeHHCGvI-35">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-44" value="handler接收到信息并且寻找到对应的LED1的空间" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;" parent="PTPIMXJff3HOZeHHCGvI-35" vertex="1" connectable="0">
           <mxGeometry x="-0.0724" y="4" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-24" value="&lt;div&gt;handler-&amp;gt;controller-funct(handler_self,&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11px; text-wrap-mode: nowrap; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;LED1句柄,ON&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;)&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-24" value="&lt;div&gt;handler-&amp;gt;controller-funct(handler_self,&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 11px; text-wrap-mode: nowrap; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;LED1句柄,ON&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;)&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="215" y="2240" width="270" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-38" value="LED_ON_FUNCTIONS" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-38" value="LED_ON_FUNCTIONS" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="80" y="2660" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="PTPIMXJff3HOZeHHCGvI-40" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.565;entryY=1.038;entryDx=0;entryDy=0;entryPerimeter=0;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" edge="1" parent="1" source="PTPIMXJff3HOZeHHCGvI-20" target="PTPIMXJff3HOZeHHCGvI-25">
+        <mxCell id="PTPIMXJff3HOZeHHCGvI-40" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.565;entryY=1.038;entryDx=0;entryDy=0;entryPerimeter=0;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="PTPIMXJff3HOZeHHCGvI-20" target="PTPIMXJff3HOZeHHCGvI-25" edge="1">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9ZNhY2AqPbfpju1eriSi-1" value="&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;以上就是推送流程,整体而言这个驱动的结构如下&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;1/driver-&amp;gt;像上handler提供自己的操作函数即正儿八经的具体实现类&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;2/handler-&amp;gt;负责管理挂在自己总线上所有的设备,并接受上层驱动带来的msg,在去调用下层driver&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;3/handler的则只需要把handler申明,然后把driver挂载进handler,并且拿到当前挂载的句柄.就可以操作最底下的driver.&lt;/span&gt;&lt;/p&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="7" y="2813" width="813" height="207" as="geometry" />
+        </mxCell>
+        <mxCell id="9ZNhY2AqPbfpju1eriSi-2" value="&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;驱动的意义,方便打包带走.是一个兼容类型的库.驱动调完都可以用了,下次换一个led,或者其他同等类型的设备,可以只换外部的驱动函数,都无所谓,并且还可以一直去添加下层的led模块,内部调用一点完全和充分的验证之后,可以排除内部调用的问题,只关心外部函数&lt;/span&gt;&lt;/p&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="7.5" y="3160" width="813" height="160" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
