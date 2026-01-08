@@ -802,7 +802,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="aESpygJyv2H9ImVJaQx8" name="驱动专题找对象">
-    <mxGraphModel dx="1342" dy="1287" grid="1" gridSize="20" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1941" dy="1346" grid="1" gridSize="20" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1087,6 +1087,80 @@
         </mxCell>
         <mxCell id="9ZNhY2AqPbfpju1eriSi-2" value="&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;驱动的意义,方便打包带走.是一个兼容类型的库.驱动调完都可以用了,下次换一个led,或者其他同等类型的设备,可以只换外部的驱动函数,都无所谓,并且还可以一直去添加下层的led模块,内部调用一点完全和充分的验证之后,可以排除内部调用的问题,只关心外部函数&lt;/span&gt;&lt;/p&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" parent="1" vertex="1">
           <mxGeometry x="7.5" y="3160" width="813" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-1" value="&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;AHT21XXX_驱动专题&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;驱动框架如下，暂时只到driver层面的详解&lt;/span&gt;&lt;/p&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="4" y="3520" width="813" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-2" value="hal_funcitons&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="12.5" y="4400" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-3" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;rounded=1;startSize=8;endSize=8;endArrow=open;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;curved=1;" edge="1" parent="1">
+          <mxGeometry width="140" relative="1" as="geometry">
+            <mxPoint x="87" y="4400" as="sourcePoint" />
+            <mxPoint x="87" y="4280" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-5" value="提供：具体的操作函数，如IIC启动停止等等" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;" vertex="1" connectable="0" parent="WdWLIw8AOK7ZizX4-hBd-3">
+          <mxGeometry x="-0.024" y="-2" relative="1" as="geometry">
+            <mxPoint x="118" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-13" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" edge="1" parent="1" source="WdWLIw8AOK7ZizX4-hBd-4" target="WdWLIw8AOK7ZizX4-hBd-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-19" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" edge="1" parent="1" source="WdWLIw8AOK7ZizX4-hBd-4" target="WdWLIw8AOK7ZizX4-hBd-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-4" value="bsp_aht21xxx_driver.c&lt;div&gt;bsp_aht21xxx_driver.h&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="7.5" y="4200" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-6" value="bsp_aht21xxx需要什么？" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="252.5" y="4200" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-7" value="1.具体的通讯方式&lt;div&gt;IIC的实际操作函数&lt;/div&gt;&lt;div&gt;由下层提供&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="584.5" y="4120" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-8" value="2.自己BSP的状态&lt;div&gt;自己提供自己&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="584.5" y="4200" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-9" value="3.单片机的时间基准" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="584.5" y="4280" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-10" value="4.如果需要移植到操作系统，需要开关中断（裸机也可以要）" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="584.5" y="4360" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-14" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;rounded=1;startSize=8;endSize=8;endArrow=open;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;curved=1;" edge="1" parent="1">
+          <mxGeometry width="140" relative="1" as="geometry">
+            <mxPoint x="427.5" y="4240" as="sourcePoint" />
+            <mxPoint x="567.5" y="4240" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-16" value="bsp_aht21xxx需要对外暴露什么？" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="252.5" y="4120" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-21" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" edge="1" parent="1" source="WdWLIw8AOK7ZizX4-hBd-18" target="WdWLIw8AOK7ZizX4-hBd-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-18" value="bsp_aht21xxx_handler.c&lt;div&gt;bsp_aht21xxx_handler.h&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="10" y="3960" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-20" value="bsp_aht21xxx_handler.c&lt;div&gt;bsp_aht21xxx_handler.h&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="12.5" y="3820" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-22" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;rounded=1;startSize=8;endSize=8;endArrow=open;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;curved=1;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="WdWLIw8AOK7ZizX4-hBd-23">
+          <mxGeometry width="140" relative="1" as="geometry">
+            <mxPoint x="331.79" y="4120" as="sourcePoint" />
+            <mxPoint x="331.79" y="4010" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-23" value="1.提供具体的读取函数" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="560" y="3880" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WdWLIw8AOK7ZizX4-hBd-24" value="2.提供初始化函数" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Lucida Console;" vertex="1" parent="1">
+          <mxGeometry x="560" y="3800" width="160" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
