@@ -22,6 +22,7 @@ alias la='ls -A'
 alias st='cd /d/MySelfFile/05_INFO-stm32/RTOS-INFO/00_my_information/02_st'
 # dont save history 
 export HISTFILE=/dev/null
+# stop bash window flash
 bind 'set bell-style none'
 # star ship 
 eval "$(starship init bash)"
